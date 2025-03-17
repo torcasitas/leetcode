@@ -20,14 +20,37 @@
  * 
  */
 
+// const rotateArray = (nums, k) => {
+//   for (let i = 0; i < k; i++) {
+//     let popItem = nums.pop();
+//     nums.splice(0, 0, popItem);
+//   }
+
+//   //   console.log('rotated ', rotatedItems);
+//   //   nums;
+// };
+
 const rotateArray = (nums, k) => {
-  for (let i = 0; i < k; i++) {
-    let popItem = nums.pop();
-    nums.splice(0, 0, popItem);
+  let n = nums.length;
+  k = k % n; // To handle k > n
+
+  // Helper function to reverse a portion of the array
+  function reverse(start, end) {
+    while (start < end) {
+      let temp = nums[start];
+      nums[start] = nums[end];
+      nums[end] = temp;
+      start++;
+      end--;
+    }
   }
 
-  //   console.log('rotated ', rotatedItems);
-  //   nums;
+  // Reverse the entire array
+  reverse(0, n - 1);
+  // Reverse the first k elements to restore order
+  reverse(0, k - 1);
+  // Reverse the last n-k elements to restore order
+  reverse(k, n - 1);
 };
 
 let nums = [1, 2, 3, 4, 5, 6, 7];
