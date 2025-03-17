@@ -20,8 +20,14 @@
  * 
  */
 
-const rotateArray = (nums: number[], k: number): void => {};
+const rotateArray = (nums: number[], k: number): void => {
+  for (let i = 0; i < k; i++) {
+    let popItem: number | undefined = nums.pop();
+    nums.splice(0, 0, popItem || 0);
+  }
+};
 
 let nums: number[] = [1, 2, 3, 4, 5, 6, 7];
 
+rotateArray(nums, 3);
 console.log(nums);
