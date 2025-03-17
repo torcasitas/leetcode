@@ -30,6 +30,17 @@
 //   //   nums;
 // };
 
+/**
+ *
+ *
+ * Optimal Solution
+ *
+ * Steps:
+ * 1. Reverse the entire array.
+ * 2. Reverse the first k elements.
+ * 3. Reverse the last n-k elements.
+ */
+
 const rotateArray = (nums, k) => {
   let n = nums.length;
   k = k % n; // To handle k > n
